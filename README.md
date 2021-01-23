@@ -1,13 +1,13 @@
 ## vim/ ##
-1. copy .vimrc to ~/.vimrc
+1. copy `vim/.vimrc` to `~/.vimrc`
 
-2. run this
+2. install vim plugin manager
 ```
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
-3. start vim
+4. in vim, install the plugin
 ```
 :PlugInstall
-:source %
 ```
+5. voila!
