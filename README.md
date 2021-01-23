@@ -1,4 +1,6 @@
 ## vim/ ##
+![Alt text](vim.png?raw=true "vim.png")
+
 1. copy `vim/.vimrc` to `~/.vimrc`
 
 2. install vim plugin manager
