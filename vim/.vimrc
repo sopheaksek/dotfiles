@@ -15,9 +15,9 @@ set noshowmode
 set showmatch
 call plug#begin('~/.vim/plugged')
     Plug 'itchyny/lightline.vim'
-    Plug 'preservim/nerdcommenter'
     Plug 'sainnhe/sonokai'
     Plug 'sheerun/vim-polyglot'
 call plug#end()
+noremap ; :
 
 colorscheme sonokai
