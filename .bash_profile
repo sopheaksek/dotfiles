@@ -1,3 +1,5 @@
+#source ~/.nvm/nvm.sh
+#$nvm use stable
 shopt -s autocd
 shopt -s histappend
 
@@ -14,9 +16,9 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 
 PS1='\[\e[0m\]\u\[\e[0m\]@\[\e[0m\]\H\[\e[0m\]:\[\e[0m\]:\[\e[m\] \[\e[0;32m\]\w\[\e[m\] \[\e[0m\]>\[\e0 '
 
+fortune | cowsay -f tux
 tmux
 
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-
-export DISPLAY=:0
+export PATH="/Users/sp/flutter/bin:$PATH"
 
