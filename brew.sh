@@ -12,33 +12,18 @@ if [ ! "$?" -eq 0 ] ; then
 fi
 
 brew update
-
 brew upgrade
-
 brew install coreutils
-
 brew install node
-
 brew install python
-
 brew install go
-
 brew install yarn
-
 brew install htop
-
 brew install tmux
-
 brew install vim
-
 brew install gdb
-
 brew install bash
-
-brew cask install font-fira-code
-
+brew tap homebrew/cask-fonts && brew install --cask font-fira-code
 brew install fortune
-
-brew isntall cowsay
-
+brew install cowsay
 brew cleanup
