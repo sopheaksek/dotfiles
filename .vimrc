@@ -5,7 +5,6 @@ set tabstop=4 softtabstop=4
 set expandtab
 set smartindent
 set nu
-set relativenumber
 set nowrap
 set smartcase
 set incsearch
@@ -26,11 +25,8 @@ set signcolumn=yes
 
 call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'
-    Plug 'gruvbox-community/gruvbox'
     Plug 'sheerun/vim-polyglot'
+    Plug 'gruvbox-community/gruvbox'
 call plug#end()
-
-noremap ; :
-
-set bg=dark
+set background=dark
 colorscheme gruvbox
