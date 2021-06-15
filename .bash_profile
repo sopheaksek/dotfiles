@@ -14,10 +14,13 @@ bind '"\e[B": history-search-forward'
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-
-PS1='\[\e[0m\]\u\[\e[0m\]@\[\e[0m\]\H\[\e[0m\]:\[\e[0m\]:\[\e[m\] \[\e[0;32m\]\w\[\e[m\] \[\e[0m\]>\[\e0 '
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+export PS1="\e[0;32m\u@\h\e[m \w \e[0;31m\$(parse_git_branch)\e[m \\$\[$(tput sgr0)\] "
 
 fortune | cowsay -f tux
 
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="/Users/vtechone/platform-tools:$PATH"
