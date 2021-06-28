@@ -1,6 +1,8 @@
 #source ~/.nvm/nvm.sh
 #$nvm use stable
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ `uname -m` == 'arm64' ]]; then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 shopt -s autocd
 shopt -s histappend
 
@@ -17,7 +19,8 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
-export PS1="\e[0;32m\u@\h\e[m \w \e[0;31m\$(parse_git_branch)\e[m \\$\[$(tput sgr0)\] "
+
+export PS1="\e[0;32m>\e[m \[$(tput sgr0)\]"
 
 fortune | cowsay -f tux
 
