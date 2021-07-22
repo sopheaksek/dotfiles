@@ -20,7 +20,7 @@ parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-export PS1="\e[0;32m>\e[m \[$(tput sgr0)\]"
+export PS1="\e[0;32m>\e[m \[$(tput sgr0)\]\[\e[0m"
 
 fortune | cowsay -f tux
 
