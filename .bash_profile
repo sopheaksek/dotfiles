@@ -1,3 +1,4 @@
+export PATH="/opt/homebrew/bin:$PATH"
 #source ~/.nvm/nvm.sh
 #$nvm use stable
 if [[ `uname -m` == 'arm64' ]]; then
@@ -20,7 +21,7 @@ parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-export PS1="\e[0;32m>\e[m \[$(tput sgr0)\]\[\e[0m"
+export PS1="\033[1;32m\w \033[00m\$ "
 
 fortune | cowsay -f tux
 
