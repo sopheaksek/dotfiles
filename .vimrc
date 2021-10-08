@@ -24,7 +24,6 @@ set colorcolumn=80
 set signcolumn=yes
 
 call plug#begin('~/.vim/plugged')
-    Plug 'tpope/vim-fugitive'
     Plug 'sheerun/vim-polyglot'
     Plug 'gruvbox-community/gruvbox'
 call plug#end()
