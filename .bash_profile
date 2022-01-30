@@ -28,3 +28,4 @@ fortune | cowsay -f tux
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="/Users/vtechone/platform-tools:$PATH"
+export PATH="/usr/local/opt/postgresql@13/bin:$PATH"
