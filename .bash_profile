@@ -28,6 +28,7 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="/Users/vtechone/platform-tools:$PATH"
 export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
 export PATH="$PATH:~/.yarn/bin"
+export PATH="/usr/local/opt/postgresql@13/bin:$PATH"
 
+source $(brew --prefix nvm)/nvm.sh

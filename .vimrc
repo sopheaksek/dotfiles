@@ -16,7 +16,6 @@ set nocompatible
 set hidden
 set noswapfile
 set nobackup
-set termguicolors
 set scrolloff=8
 
 set cmdheight=2
@@ -27,5 +26,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'sheerun/vim-polyglot'
     Plug 'gruvbox-community/gruvbox'
 call plug#end()
+
 set background=dark
 colorscheme gruvbox
