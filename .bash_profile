@@ -8,8 +8,7 @@ shopt -s autocd
 shopt -s histappend
 
 export PATH=$PATH:$HOME/bin
-export TERM=xterm-256color
-export HISTSIZE=5000
+export TERM=xterm-256color export HISTSIZE=5000
 export HISTFILESIZE=10000
 
 bind '"\e[A": history-search-backward'
@@ -28,3 +27,7 @@ fortune | cowsay -f tux
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="/Users/vtechone/platform-tools:$PATH"
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+export PATH="$PATH:~/.yarn/bin"
+
