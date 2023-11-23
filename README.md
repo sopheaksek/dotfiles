@@ -1,3 +1,5 @@
+Quick Setup Configuration for Mac
+
 * bash install.sh
 * tmux then ctrl&j + I
-* vim then :PlugInstall
+* nvim then :PackerSync

@@ -21,6 +21,7 @@ brew install yarn
 brew install htop
 brew install tmux
 brew install vim
+brew install nvim
 brew install gdb
 brew install bash
 brew tap homebrew/cask-fonts && brew install --cask font-fira-code

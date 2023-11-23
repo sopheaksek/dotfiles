@@ -22,12 +22,14 @@ install_tools () {
 		echo_with_prompt "Brew installation cancelled by user"
 	fi
 }
+
 init
 install_tools
+
 ln -sv "$PWD/.bash_profile" "$HOME" || true
 ln -sv "$PWD/.tmux.conf" "$HOME" || true
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-ln -sv "$PWD/.vimrc" "$HOME" || true
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 true
