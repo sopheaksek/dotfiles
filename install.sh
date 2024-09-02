@@ -27,10 +27,7 @@ init
 install_tools
 
 ln -sv "$PWD/.bash_profile" "$HOME" || true
-ln -sv "$PWD/.tmux.conf" "$HOME" || true
-ln -sv "$PWD/.config/nvim" "$HOME/.config/nvim" || true
-
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+ln -sfnv "$PWD/.tmux.conf" "$HOME/.config/tmux/tmux.conf" || true
+ln -sfnv "$PWD/.config/nvim" "$HOME/.config/nvim" || true
 
 true
