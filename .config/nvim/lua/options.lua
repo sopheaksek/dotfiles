@@ -1,25 +1,44 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+local g = vim.g
+local opt = vim.opt
 
-vim.opt.cmdheight = 2
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.expandtab = true
-vim.opt.smartindent = true
-vim.opt.number = true
-vim.opt.title = true
-vim.opt.termguicolors = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.wrap = false
-vim.opt.mouse = 'a' 
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.scrolloff = 10 
-vim.opt.undofile = true 
-vim.opt.backup = false 
-vim.opt.signcolumn = 'yes:2'
-vim.opt.updatetime = 250 
-vim.opt.redrawtime = 10000 
-vim.opt.inccommand = 'split'
+-- Global
+g.mapleader = " "
+g.maplocalleader = " "
+
+-- General
+opt.mouse = 'a'
+opt.swapfile = false
+opt.completeopt = 'menuone,noinsert,noselect'
+opt.cmdheight = 0
+opt.title = true
+opt.scrolloff = 10
+opt.inccommand = 'split'
+
+-- Neovim UI
+opt.number = true
+opt.showmatch = true
+opt.colorcolumn = '100'
+opt.splitright = true
+opt.splitbelow = true
+opt.ignorecase = true
+opt.smartcase = true
+opt.termguicolors = true
+opt.laststatus = 3
+opt.wrap = false
+opt.signcolumn = 'yes:2'
+
+-- Tabs, indent
+opt.expandtab = true
+opt.shiftwidth = 4
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.smartindent = true
+
+-- Memory, CPU
+opt.hidden = true
+opt.history = 100
+opt.lazyredraw = true
+opt.updatetime = 250
+opt.undofile = true
+opt.backup = false
+opt.redrawtime = 10000
