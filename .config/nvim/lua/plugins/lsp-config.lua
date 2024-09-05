@@ -67,9 +67,10 @@ return {
         local servers = {
             gopls = {},
             tsserver = {
-                on_init = function(client)
+                on_attach = function(client, bufnr)
                     client.server_capabilities.documentFormattingProvider = false
                     client.server_capabilities.documentFormattingRangeProvider = false
+                    vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>fm", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", {})
                 end,
                 filetypes = { "vue", "javascript", "typescript" },
                 init_options = {
