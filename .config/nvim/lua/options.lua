@@ -6,18 +6,18 @@ g.mapleader = " "
 g.maplocalleader = " "
 
 -- General
-opt.mouse = 'a'
+opt.mouse = "a"
 opt.swapfile = false
-opt.completeopt = 'menuone,noinsert,noselect'
+opt.completeopt = "menuone,noinsert,noselect"
 opt.cmdheight = 0
 opt.title = true
 opt.scrolloff = 10
-opt.inccommand = 'split'
+opt.inccommand = "split"
 
 -- Neovim UI
 opt.number = true
 opt.showmatch = true
-opt.colorcolumn = '100'
+opt.colorcolumn = "100"
 opt.splitright = true
 opt.splitbelow = true
 opt.ignorecase = true
@@ -25,7 +25,7 @@ opt.smartcase = true
 opt.termguicolors = true
 opt.laststatus = 3
 opt.wrap = false
-opt.signcolumn = 'yes:2'
+opt.signcolumn = "yes:2"
 
 -- Tabs, indent
 opt.expandtab = true
@@ -42,3 +42,11 @@ opt.updatetime = 250
 opt.undofile = true
 opt.backup = false
 opt.redrawtime = 10000
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+})

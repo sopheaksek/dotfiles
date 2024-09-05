@@ -62,9 +62,26 @@ return {
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
+        local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
+        local volar_path = mason_packages .. "/vue-language-server/node_modules/@vue/language-server"
         local servers = {
             gopls = {},
-            tsserver = {},
+            tsserver = {
+                on_init = function(client)
+                    client.server_capabilities.documentFormattingProvider = false
+                    client.server_capabilities.documentFormattingRangeProvider = false
+                end,
+                filetypes = { "vue", "javascript", "typescript" },
+                init_options = {
+                    plugins = {
+                        {
+                            name = "@vue/typescript-plugin",
+                            location = volar_path,
+                            languages = { "vue" },
+                        },
+                    },
+                },
+            },
             lua_ls = {},
         }
 
@@ -73,7 +90,8 @@ return {
         local ensure_installed = vim.tbl_keys(servers or {})
 
         vim.list_extend(ensure_installed, {
-            "stylua", -- Used to format Lua code
+            "stylua",
+            "prettierd",
             "gofumpt",
         })
 
