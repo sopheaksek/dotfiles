@@ -78,12 +78,6 @@ return {
 			"gofumpt",
 		})
 
-		for i, v in ipairs(ensure_installed) do
-			if v == "ts_ls" then
-				ensure_installed[i] = "tsserver"
-			end
-		end
-
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 		require("mason-lspconfig").setup({
@@ -91,9 +85,6 @@ return {
 				function(server_name)
 					local server = servers[server_name] or {}
 					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-					if server_name == "tsserver" then
-						server_name = "ts_ls"
-					end
 					require("lspconfig")[server_name].setup(server)
 				end,
 			},
