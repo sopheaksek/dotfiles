@@ -25,7 +25,22 @@ set signcolumn=yes
 call plug#begin('~/.vim/plugged')
     Plug 'sheerun/vim-polyglot'
     Plug 'gruvbox-community/gruvbox'
+    Plug 'preservim/nerdtree'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    Plug 'dyng/ctrlsf.vim'
 call plug#end()
+
+" keymaps
+let g:mapleader="\<Space>"
+
+nmap <C-s> :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+
+" nerd tree
+nmap <C-p> :NERDTreeToggle<CR>
+
+" ctrlsf
+nmap <C-F> <Plug>CtrlSFCwordPath -W<CR>
 
 set background=dark
 colorscheme gruvbox
