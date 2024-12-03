@@ -33,7 +33,7 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.termguicolors = true
 opt.wrap = false
-opt.signcolumn = 2
+opt.signcolumn = "auto"
 opt.hlsearch = true
 opt.incsearch = true
 opt.pumheight = 10
@@ -60,9 +60,9 @@ opt.backup = false
 opt.redrawtime = 10000
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-	callback = function()
-		vim.highlight.on_yank()
-	end,
+    desc = "Highlight when yanking (copying) text",
+    group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+    callback = function()
+        vim.highlight.on_yank()
+    end,
 })

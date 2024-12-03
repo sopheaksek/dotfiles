@@ -3,10 +3,8 @@ local opts = { noremap = true }
 
 keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-keymap.set("n", "<leader>s", ":source $HOME/.config/nvim/init.lua<CR>", { desc = "Reload config" })
 
 -- select all
-keymap.set("n", "<leader>ps", ":source $HOME/.config/nvim/init.lua<CR>", { desc = "Reload config" })
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- switch window
