@@ -22,8 +22,12 @@ end, opts)
 keymap.set("n", "<leader>pv", "<CMD>Oil<CR>", { desc = "Open file explorer" })
 
 -- lsp
-keymap.set("n", "<leader>F", vim.lsp.buf.hover)
+keymap.set("n", "<leader>.", vim.lsp.buf.hover)
 keymap.set({ "n", "v" }, "<leader>ff", vim.lsp.buf.format, {})
+
+keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "[R]e[n]ame" })
+keymap.set({ "n", "x" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ction" })
+keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "[G]oto [D]eclaration" })
 
 -- telescope
 local builtin = require("telescope.builtin")
@@ -32,6 +36,13 @@ keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search Git Files" })
 keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+
+keymap.set("n", "gd", builtin.lsp_definitions, { desc = "[G]oto [D]efinition" })
+keymap.set("n", "gr", builtin.lsp_references, { desc = "[G]oto [R]eferences" })
+keymap.set("n", "gI", builtin.lsp_implementations, { desc = "[G]oto [I]mplementation" })
+keymap.set("n", "<leader>D", builtin.lsp_type_definitions, { desc = "Type [D]efinition" })
+keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, { desc = "[D]ocument [S]ymbols" })
+keymap.set("n", "<leader>ws", builtin.lsp_dynamic_workspace_symbols, { desc = "[W]orkspace [S]ymbols" })
 
 keymap.set("n", "<leader>/", function()
     builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({

@@ -12,7 +12,7 @@ g.loaded_netrwPlugin = 1
 vim.cmd("set path+=**")
 
 -- General
-opt.title = true
+opt.title = false
 opt.mouse = "a"
 opt.swapfile = false
 opt.completeopt = "menuone,noinsert,noselect"
@@ -60,9 +60,9 @@ opt.backup = false
 opt.redrawtime = 10000
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-    desc = "Highlight when yanking (copying) text",
-    group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-    callback = function()
-        vim.highlight.on_yank()
-    end,
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
 })
