@@ -33,14 +33,15 @@ keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "[G]oto [D]eclaration" }
 local builtin = require("telescope.builtin")
 keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
 keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search Git Files" })
+keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Search Find Helps" })
 keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 
 keymap.set("n", "gd", builtin.lsp_definitions, { desc = "[G]oto [D]efinition" })
-keymap.set("n", "gr", builtin.lsp_references, { desc = "[G]oto [R]eferences" })
+-- keymap.set("n", "gr", builtin.lsp_references, { desc = "[G]oto [R]eferences" })
 keymap.set("n", "gI", builtin.lsp_implementations, { desc = "[G]oto [I]mplementation" })
-keymap.set("n", "<leader>D", builtin.lsp_type_definitions, { desc = "Type [D]efinition" })
+keymap.set("n", "<leader>td", builtin.lsp_type_definitions, { desc = "[T]ype [D]efinition" })
 keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, { desc = "[D]ocument [S]ymbols" })
 keymap.set("n", "<leader>ws", builtin.lsp_dynamic_workspace_symbols, { desc = "[W]orkspace [S]ymbols" })
 

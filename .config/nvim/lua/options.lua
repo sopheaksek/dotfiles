@@ -12,11 +12,10 @@ g.loaded_netrwPlugin = 1
 vim.cmd("set path+=**")
 
 -- General
-opt.title = false
+opt.title = true
 opt.mouse = "a"
 opt.swapfile = false
 opt.completeopt = "menuone,noinsert,noselect"
-opt.cmdheight = 0
 opt.scrolloff = 10
 opt.inccommand = "split"
 opt.fileencoding = "utf-8"
@@ -33,14 +32,14 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.termguicolors = true
 opt.wrap = false
-opt.signcolumn = "auto"
+opt.signcolumn = "auto:1-2"
 opt.hlsearch = true
 opt.incsearch = true
 opt.pumheight = 10
 opt.showtabline = 2
 opt.laststatus = 2
+opt.cmdheight = 1 
 opt.showcmd = true
-opt.cmdheight = 2
 opt.showmode = true
 
 -- Tabs, indent

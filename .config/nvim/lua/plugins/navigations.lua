@@ -1,10 +1,5 @@
 return {
     {
-        "eoh-bse/minintro.nvim",
-        config = true,
-        lazy = false,
-    },
-    {
         "stevearc/oil.nvim",
         ---@module 'oil'
         ---@type oil.SetupOpts
@@ -16,6 +11,9 @@ return {
                 view_options = {
                     -- Show files and directories that start with "."
                     show_hidden = true,
+                },
+                keymaps = {
+                    ["<C-h>"] = false,
                 },
                 default_file_explorer = true,
             })

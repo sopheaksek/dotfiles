@@ -1,26 +1,46 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
+		{
+			"folke/lazydev.nvim",
+			ft = "lua", -- only load on lua files
+			opts = {
+				library = {
+					-- See the configuration section for more details
+					-- Load luvit types when the `vim.uv` word is found
+					{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+				},
+			},
+		},
 		{ "williamboman/mason.nvim", config = true },
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		{ "j-hui/fidget.nvim", opts = {} },
-		"hrsh7th/cmp-nvim-lsp",
+		{
+			"hrsh7th/cmp-nvim-lsp",
+			opts = function(_, opts)
+				opts.sources = opts.sources or {}
+				table.insert(opts.sources, {
+					name = "lazydev",
+					group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+				})
+			end,
+		},
 	},
 	config = function()
---		vim.api.nvim_create_autocmd("LspAttach", {
---			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
---			callback = function(event)
---				local map = function(keys, func, desc, mode)
---					mode = mode or "n"
---					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
---				end
---
---				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
---				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
---				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
---			end,
---		})
+		--		vim.api.nvim_create_autocmd("LspAttach", {
+		--			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
+		--			callback = function(event)
+		--				local map = function(keys, func, desc, mode)
+		--					mode = mode or "n"
+		--					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+		--				end
+		--
+		--				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+		--				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
+		--				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+		--			end,
+		--		})
 
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
@@ -63,6 +83,7 @@ return {
 			"stylua",
 			"prettierd",
 			"gofumpt",
+			"buf",
 		})
 
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
